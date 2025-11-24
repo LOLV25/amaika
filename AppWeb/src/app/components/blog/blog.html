@@ -1,0 +1,21 @@
+<section class="blogs">
+  <h2>Publicar Blog</h2>
+
+  <!-- Formulario -->
+  <form (ngSubmit)="enviarBlog()" class="blog-form">
+    <input [(ngModel)]="nuevoBlog.titulo" name="titulo" placeholder="Título" required>
+    <input [(ngModel)]="nuevoBlog.slug" name="slug" placeholder="Slug" required>
+    <textarea [(ngModel)]="nuevoBlog.contenido" name="contenido" placeholder="Contenido" required></textarea>
+    <button type="submit">Publicar</button>
+  </form>
+
+  <!-- Lista de blogs -->
+  <div class="lista-blogs">
+    <div *ngFor="let b of blogs" class="blog-item">
+      <h3>{{ b.titulo }}</h3>
+      <small>{{ b.fecha_publicacion }}</small>
+      <p>{{ b.contenido }}</p>
+      <span class="slug">Slug: {{ b.slug }}</span>
+    </div>
+  </div>
+</section>

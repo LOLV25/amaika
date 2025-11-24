@@ -1,0 +1,21 @@
+<section class="resenas">
+  <h2>Reseñas</h2>
+
+  <!-- Formulario para nueva reseña -->
+  <form (ngSubmit)="enviarResena()" class="resena-form">
+    <input [(ngModel)]="nuevaResena.nombre" name="nombre" placeholder="Nombre" required>
+    <input [(ngModel)]="nuevaResena.email" name="email" type="email" placeholder="Email" required>
+    <textarea [(ngModel)]="nuevaResena.comentario" name="comentario" placeholder="Comentario" required></textarea>
+    <input [(ngModel)]="nuevaResena.rating" name="rating" type="number" min="1" max="5" placeholder="Calificación (1-5)" required>
+    <button type="submit">Enviar Reseña</button>
+  </form>
+
+  <!-- Lista de reseñas -->
+  <div class="lista-resenas">
+    <div *ngFor="let r of resenas" class="resena-item">
+      <h4>{{ r.nombre }} ({{ r.rating }}/5)</h4>
+      <p>{{ r.comentario }}</p>
+      <small>{{ r.email }} - {{ r.fecha }}</small>
+    </div>
+  </div>
+</section>
